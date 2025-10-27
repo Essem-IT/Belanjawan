@@ -3,16 +3,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
   from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-// Your Firebase config (replace with yours)
+// ✅ Corrected Firebase config
 const firebaseConfig = {
-    apiKey: "AIzaSyDZABhaqGERqi1-8EZWu00m1BWkUfzaf-U",
-    authDomain: "belanjawanapp.firebaseapp.com",
-    projectId: "belanjawanapp",
-    storageBucket: "belanjawanapp.firebasestorage.app",
-    messagingSenderId: "259698450299",
-    appId: "1:259698450299:web:a95acc84293973aaf127de",
-    measurementId: "G-9720KP3RJN"
-  };
+  apiKey: "AIzaSyDZABhaqGERqi1-8EZWu00m1BWkUfzaf-U",
+  authDomain: "belanjawanapp.firebaseapp.com",
+  projectId: "belanjawanapp",
+  storageBucket: "belanjawanapp.appspot.com",  // ✅ Fixed here
+  messagingSenderId: "259698450299",
+  appId: "1:259698450299:web:a95acc84293973aaf127de",
+  measurementId: "G-9720KP3RJN"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
