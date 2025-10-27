@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome!</h2>
+    <p id="userEmail"></p>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } 
+      from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZABhaqGERqi1-8EZWu00m1BWkUfzaf-U",
+      authDomain: "belanjawanapp.firebaseapp.com",
+      projectId: "belanjawanapp",
+      storageBucket: "belanjawanapp.appspot.com",
+      messagingSenderId: "259698450299",
+      appId: "1:259698450299:web:a95acc84293973aaf127de",
+      measurementId: "G-9720KP3RJN"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const userEmail = document.getElementById("userEmail");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Check login status
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userEmail.textContent = "You are logged in as: " + user.email;
+      } else {
+        // Redirect if not logged in
+        window.location.href = "index.html";
+      }
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth).then(() => {
+        window.location.href = "index.html";
+      });
+    });
+  </script>
+</body>
+</html>
