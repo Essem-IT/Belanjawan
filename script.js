@@ -38,6 +38,11 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
     await signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value);
     message.textContent = "Login successful!";
     message.style.color = "green";
+
+    // Redirect after login
+    setTimeout(() => {
+      window.location.href = "welcome.html";
+    }, 1000);
   } catch (error) {
     message.textContent = error.message;
     message.style.color = "red";
